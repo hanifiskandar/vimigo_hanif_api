@@ -21,6 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address1',
+        'address2',
+        'address3',
+        'postcode',
+        'city',
+        'state',
+
     ];
 
     /**
@@ -32,6 +40,25 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /* Relation */
+
+    public function genres(){
+        return $this->hasMany(UserGenre::class, 'user_id', 'id');
+    }
+
+    public function interest(){
+        return $this->hasMany(UserInterest::class, 'user_id', 'id');
+    }
+
+    public function history(){
+        return $this->hasMany(UserHistory::class, 'user_id', 'id');
+    }
+
+    public function subscription(){
+        return $this->hasOne(UserSubscription::class, 'user_id', 'id');
+    }
+
 
     /**
      * The attributes that should be cast.
