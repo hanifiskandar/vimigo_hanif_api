@@ -209,7 +209,7 @@ class UserProfileController extends Controller
                 // If the music_id doesn't exist in the UserPlaylist, create a new entry
                 if (!$existingEntry) {
                     $userPlaylist = new UserPlaylist();
-                    $userPlaylist->music_id = $m;
+                    $userPlaylist->music_id = $history;
                     $userPlaylist->user_id = $userProfile->id;
                     $userPlaylist->save();
                 }
